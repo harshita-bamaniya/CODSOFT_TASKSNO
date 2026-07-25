@@ -1,3 +1,4 @@
+Updated deployment.
 # TIC TAC MIND 🎮⚡ (Web Edition)
 
 > A modern, dark-themed, glassmorphic Web Tic Tac Toe experience featuring an **unbeatable Minimax AI**, Web Audio API synthesizer, and zero asset dependencies — ready for instant deployment on **GitHub Pages**.
