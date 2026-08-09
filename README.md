@@ -16,7 +16,7 @@ This repository contains three completed projects covering different areas of AI
 
 ---
 
-# 🎮 Task 2 — Tic-Tac-Mind
+# 🎮 Task 1 — Tic-Tac-Mind
 
 ### AI-Powered Tic-Tac-Toe Game
 
@@ -55,7 +55,7 @@ The AI uses game-search techniques to evaluate possible moves and make optimal d
 
 ---
 
-# 🖼️ Task 3 — Visionary AI
+# 🖼️ Task 2 — Visionary AI
 
 ### AI Image Caption Generator
 
@@ -99,7 +99,7 @@ The project combines a modern React frontend with a Python backend and AI vision
 
 ---
 
-# 🎬 Task 4 — CineMatch AI
+# 🎬 Task 3 — CineMatch AI
 
 ### AI-Powered Hybrid Movie Recommendation System
 
