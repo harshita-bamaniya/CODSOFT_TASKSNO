@@ -6,7 +6,12 @@ from google import genai
 
 load_dotenv()
 
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+api_key = os.getenv("GEMINI_API_KEY")
+
+if not api_key:
+    raise ValueError("GEMINI_API_KEY is not configured.")
+
+client = genai.Client(api_key=api_key)
 
 
 class GeminiService:
@@ -19,7 +24,7 @@ You are an expert AI copywriter.
 Base caption:
 {base_caption}
 
-Create four unique captions based on the image.
+Create four UNIQUE captions based on the base caption.
 
 Requirements:
 
@@ -34,26 +39,30 @@ Creative:
 - Emotionally engaging.
 
 Detailed:
-- Rich descriptive paragraph
+- Rich descriptive paragraph.
 - Mention important visual details naturally.
 
 Social:
-- Instagram-ready
-- Include relevant emojis
-- Include 3–5 relevant hashtags
+- Instagram-ready.
+- Include relevant emojis.
+- Include 3–5 relevant hashtags.
 - Encourage engagement.
 
-Return ONLY valid JSON.
+IMPORTANT:
+- Each caption must be meaningfully different.
+- Do not repeat the same sentence across categories.
+- Return ONLY valid JSON.
+- Do NOT use Markdown code fences.
+
+Return exactly this JSON structure:
 
 {{
-    "professional":"",
-    "creative":"",
-    "detailed":"",
-    "social":""
+    "professional": "",
+    "creative": "",
+    "detailed": "",
+    "social": ""
 }}
 """
-
-       
 
         try:
             response = client.models.generate_content(
@@ -61,15 +70,42 @@ Return ONLY valid JSON.
                 contents=prompt,
             )
 
-            ...
-
             if not response.text:
                 raise Exception("Gemini returned an empty response.")
 
-            print("Gemini Response:")
-            
+            raw_response = response.text.strip()
 
-            return json.loads(response.text)
+            print("Gemini Response:")
+            print(raw_response)
+
+            # Remove Markdown JSON code fences if Gemini adds them
+            if raw_response.startswith("```json"):
+                raw_response = raw_response[7:]
+
+            if raw_response.startswith("```"):
+                raw_response = raw_response[3:]
+
+            if raw_response.endswith("```"):
+                raw_response = raw_response[:-3]
+
+            raw_response = raw_response.strip()
+
+            captions = json.loads(raw_response)
+
+            required_keys = [
+                "professional",
+                "creative",
+                "detailed",
+                "social",
+            ]
+
+            for key in required_keys:
+                if key not in captions or not captions[key]:
+                    raise Exception(
+                        f"Gemini response is missing '{key}'."
+                    )
+
+            return captions
 
         except Exception as e:
             print("Gemini Error:")
