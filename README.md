@@ -20,38 +20,42 @@ This repository contains three completed projects covering different areas of AI
 
 ### AI-Powered Tic-Tac-Toe Game
 
-Tic-Tac-Mind is an AI-powered implementation of the classic Tic-Tac-Toe game where a human player competes against an intelligent computer opponent.
+Tic-Tac-Mind is an interactive AI-powered implementation of the classic Tic-Tac-Toe game where a human player competes against an intelligent computer opponent.
 
-The AI uses game-search techniques to evaluate possible moves and make optimal decisions.
+The game combines strategic decision-making with an interactive and responsive interface to provide an engaging browser-based gaming experience.
 
 ### Key Features
 
 - Human vs AI gameplay
-- Intelligent AI opponent
-- Minimax-based decision making
+- Intelligent computer opponent
 - Game-state evaluation
 - Win, lose, and draw detection
 - Interactive gameplay
 - Responsive interface
+- Sound effects and visual interactions
+- Game statistics and score tracking
 
 ### Technologies
 
-- Python
-- Minimax Algorithm
-- Game Theory
-- Search Algorithms
+- HTML5
+- CSS3
+- JavaScript
 
 ### AI Concepts Demonstrated
 
 - Artificial Intelligence
 - Decision Making
-- Game Trees
-- Minimax Search
+- Game-State Evaluation
+- Search-Based Gameplay
 - Optimal Move Selection
 
 ### Project
 
-📁 [`Tic_Tac_Mind`](./Tic_Tac_Mind)
+📁 [`Tic_Tac_Mind`](https://github.com/harshita-bamaniya/CODSOFT_TASKSNO/tree/main/Tic_Tac_Mind)
+
+### Live Demo
+
+🎮 **[Play Tic-Tac-Mind](https://harshita-bamaniya.github.io/CODSOFT_TASKSNO/Tic_Tac_Mind/)**
 
 ---
 
